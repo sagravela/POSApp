@@ -1,4 +1,5 @@
 /sinthetic_data.py
-/__pycache__
 /.venv
 **/__pycache__
+/output
+pos_inventory.db

@@ -1,0 +1,155 @@
+/* General styles */
+/* * {
+    border: 1px solid black; 
+} */
+
+QLabel, QPushButton, QHeaderView {
+    color: black;
+    font-size: 14px; 
+}
+
+QSpinBox {
+    min-width: 50px;
+    max-width: 300px;
+    width: 100px;
+}
+
+/* Style inputs */
+QLineEdit {
+    min-width: 150px; 
+    max-width: 300px; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    border-radius: 3px; 
+    text-align: left; 
+}
+
+QLineEdit#receivedAmountInput {
+    min-width: 150px;
+    max-width: 300px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: left;
+}
+
+/* Style labels */
+QLabel {
+    text-align: left;
+    font-size: 14px;
+}
+
+QLabel#quantityLabel {
+    width: 55px;  /* Set the fixed width */
+    min-width: 55px;  /* Ensure the minimum width is the same */
+    max-width: 55px;  /* Ensure the maximum width is the same */
+}
+
+QLabel#priceLabel {
+    color: #000; 
+    padding-right: 5px; 
+}
+
+QLabel#totalLabel {
+    background-color: #d68c01;
+    min-width: 50px;
+    max-width: 100px;
+    font-size: 16px; 
+    font-weight: bold;
+    color: #333; 
+    padding: 5px;
+}
+
+QLabel#receivedAmountLabel {
+    font-size: 14px; /* Font size for the received amount label */
+    color: #555; /* Slightly lighter text color */
+    padding: 5px; /* Padding around the text */
+    height: 60px;
+}
+
+/* Tab Styles */
+QTabWidget { 
+    background-color: #C0C0C0; 
+}
+
+QTabBar::tab:selected {
+    background-color: #d68c01; 
+    color: black; 
+    font-weight: bold;
+    border-radius: 2px;
+    padding: 0 10px;
+}
+
+QTabBar::tab:hover {
+    background-color: #caac75; 
+    color: black;
+    border-radius: 2px;
+}
+
+/* Table Styles */
+QTableWidget::item:selected {
+    background-color: #d68c01 ;
+    color: black;
+}
+
+QHeaderView { 
+    background-color: #d68c01 ;
+    border: 1px solid #585858; 
+}
+
+/* Button Styles */
+QPushButton {
+    min-width: 100px;
+    max-width: 300px;
+    width: 200px;
+    border: 1px solid #585858; 
+    padding: 5px; 
+    border-radius: 5px; 
+}
+
+#buttonLayout {
+    padding: 10px;
+}
+
+QPushButton#addToCartButton {
+    background-color: #7787c7; 
+}
+
+QPushButton#removeItemButton, QPushButton#clearButton {
+    background-color: #d1775c; 
+}
+
+QPushButton#editItemButton, QPushButton#checkoutButton {
+    background-color: #5cd15c; 
+}
+
+QPushButton:disabled {
+    border: 1px solid #9e9e9e; 
+    color: #757575; 
+}
+
+/* List Styles */
+QListWidget::item:selected {
+    background-color: #0078d7; 
+    color: white;
+    border: 1px solid rgb(0, 100, 200);
+}
+
+/* Message Box Styles */
+QMessageBox {
+    background-color: #d1775c;
+    color: #333; 
+    font-size: 14px; 
+}
+
+QMessageBox QPushButton {
+    background-color: #5c73d1; 
+    color: white; 
+    border: 1px solid #3c3c3c; 
+    padding: 6px; 
+    border-radius: 5px; 
+}
+
+QMessageBox QPushButton:hover {
+    background-color: #4b61b3; 
+}

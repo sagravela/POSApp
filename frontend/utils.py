@@ -1,5 +1,5 @@
-from PyQt6.QtWidgets import QLineEdit, QTableWidget, QTableWidgetItem, QLabel, QHeaderView
-from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QLineEdit, QTableWidget, QTableWidgetItem, QPushButton, QHeaderView
+from PyQt6.QtCore import Qt, QObject, QEvent
 from backend.services import get_items
 
 def display_table(parent):
@@ -11,14 +11,19 @@ def display_table(parent):
     item_table.setHorizontalHeaderLabels(["Item", "Price", "Stock"])
     item_table.verticalHeader().setVisible(False)
     item_table.horizontalHeader().setStretchLastSection(True)
-
+    item_table.setSortingEnabled(True)
+    
     header = item_table.horizontalHeader()
     for index in range(item_table.columnCount()):
         header.setSectionResizeMode(index, QHeaderView.ResizeMode.Stretch)
         header.setDefaultAlignment(Qt.AlignmentFlag.AlignLeft)
 
     item_table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
-    item_table.setSelectionMode(QTableWidget.SelectionMode.SingleSelection)
+    item_table.setSelectionMode(QTableWidget.SelectionMode.SingleSelection)  
+
+    # Install event filter to handle wheel events
+    item_table.viewport().installEventFilter(parent)
+
     return filter_search, item_table
 
 def populate_items(item_table):
@@ -27,9 +32,11 @@ def populate_items(item_table):
     for row, (store, item) in enumerate(data):
         item_table.insertRow(row)
         name_item = QTableWidgetItem(item.name)
-        price_item = QTableWidgetItem(f"{item.price:.2f}")
-        stock_item = QTableWidgetItem(str(store.stock))
-        
+        price_item = QTableWidgetItem()
+        stock_item = QTableWidgetItem()
+        price_item.setData(Qt.ItemDataRole.DisplayRole, round(item.price, 2))
+        stock_item.setData(Qt.ItemDataRole.DisplayRole, store.stock)
+
         name_item.setFlags(Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable)
         price_item.setFlags(Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable)
         stock_item.setFlags(Qt.ItemFlag.ItemIsEnabled | Qt.ItemFlag.ItemIsSelectable)

@@ -1,4 +1,7 @@
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QSpinBox, QMessageBox
+from PyQt6.QtWidgets import (
+    QWidget, QVBoxLayout, QGridLayout, QLabel, QLineEdit, QPushButton, 
+    QSpinBox, QMessageBox, QSpacerItem, QSizePolicy
+)
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QDoubleValidator
 from .utils import display_table, populate_items, filter_search, item_selected
@@ -8,7 +11,10 @@ class StoreTab(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.layout = QVBoxLayout(self)
+        self.v_layout = QVBoxLayout(self)
+
+        # Empty widget to fill the space
+        self.spacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
         # Store Filter Search Box and Item Table display
         self.filter_search, self.item_table = display_table(self)
@@ -23,17 +29,19 @@ class StoreTab(QWidget):
         populate_items(self.item_table)
 
         # Add to layout
-        self.layout.addWidget(QLabel("Search Item:"))
-        self.layout.addWidget(self.filter_search)
-        self.layout.addWidget(QLabel("Items:"))
-        self.layout.addWidget(self.item_table)
+        self.v_layout.addWidget(self.filter_search)
+        self.v_layout.addWidget(self.item_table)
+        self.v_layout.addItem(self.spacer)
+
+        # Horizontal Layout as container
+        self.grid_layout = QGridLayout()
 
         # Item Name
         self.item_name_label = QLabel("Item Name:")
         self.item_name_input = QLineEdit()
         self.item_name_input.textChanged.connect(self.is_edited)
-        self.layout.addWidget(self.item_name_label)
-        self.layout.addWidget(self.item_name_input)
+        self.grid_layout.addWidget(self.item_name_label, 0, 0)
+        self.grid_layout.addWidget(self.item_name_input, 1, 0)
 
         # Item Price
         self.item_price_label = QLabel("Item Price:")
@@ -43,8 +51,8 @@ class StoreTab(QWidget):
         price_validator.setNotation(QDoubleValidator.Notation.StandardNotation)
         self.item_price_input.setValidator(price_validator)
         self.item_price_input.textChanged.connect(self.is_edited)
-        self.layout.addWidget(self.item_price_label)
-        self.layout.addWidget(self.item_price_input)
+        self.grid_layout.addWidget(self.item_price_label, 0, 1)
+        self.grid_layout.addWidget(self.item_price_input, 1, 1)
 
         # Item Stock
         self.item_stock_label = QLabel("Item Stock:")
@@ -53,20 +61,25 @@ class StoreTab(QWidget):
         self.item_stock_input.setMinimum(0)
         self.item_stock_input.setMaximum(1000000)
         self.item_stock_input.textChanged.connect(self.is_edited)
-        self.layout.addWidget(self.item_stock_label)
-        self.layout.addWidget(self.item_stock_input)
+        self.grid_layout.addWidget(self.item_stock_label, 0, 2)
+        self.grid_layout.addWidget(self.item_stock_input, 1, 2)
 
         # Remove Item Button
         self.remove_item_button = QPushButton("Remove Item")
+        self.remove_item_button.setObjectName("removeItemButton")
         self.remove_item_button.clicked.connect(self.delete_item)
         self.remove_item_button.setEnabled(False)  # Initially disable the button
-        self.layout.addWidget(self.remove_item_button)
+        self.grid_layout.addWidget(self.remove_item_button, 0, 3)
 
         # Edit field button
         self.edit_item_button = QPushButton("Edit/Add Item")
+        self.edit_item_button.setObjectName("editItemButton")
         self.edit_item_button.clicked.connect(self.edit_add_item)
         self.edit_item_button.setEnabled(False)  # Initially disable the button
-        self.layout.addWidget(self.edit_item_button)
+        self.grid_layout.addWidget(self.edit_item_button, 1, 3)
+
+        self.v_layout.addLayout(self.grid_layout)
+        self.v_layout.addItem(self.spacer)
 
         self.name, self.price, self.stock = None, None, None
 
@@ -148,6 +161,7 @@ class StoreTab(QWidget):
             self.item_table.clearSelection()
             
             # Clear input fields
+            self.filter_search.clear()
             self.item_name_input.clear()
             self.item_price_input.clear()
             self.item_stock_input.setValue(0)
