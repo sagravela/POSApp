@@ -1,7 +1,4 @@
 /* General styles */
-/* * {
-    border: 1px solid black; 
-} */
 
 QLabel, QPushButton, QHeaderView {
     color: black;
@@ -45,7 +42,7 @@ QLabel#quantityLabel {
     max-width: 55px;  /* Ensure the maximum width is the same */
 }
 
-QLabel#priceLabel {
+QLabel#amountLabel {
     color: #000; 
     padding-right: 5px; 
 }
