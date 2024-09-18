@@ -17,6 +17,9 @@ With its user-friendly design and robust functionality, **POSApp** helps busines
 - **Database Integration**: Uses SQLAlchemy for database operations, with SQLite as the backend.
 - **Windows Installer**: Bundled with *PyInstaller* and setup installer created using *InstallForge* for easy installation on Windows.
 
+## Installation
+Download `POSApp_setup.exe` file from this [drive folder](https://drive.google.com/drive/folders/1DFYtDMS6kZp845ri0G5G6KCga50GiskE?usp=sharing) and follow the steps given by the installer.
+
 ## Usage
 
 1. **POS System Tab**:
