@@ -21,7 +21,24 @@ With its user-friendly design and robust functionality, **POSApp** helps busines
 
 ## Installation
 
-Download `POSApp_setup.exe` file from this [drive folder](https://drive.google.com/drive/folders/1DFYtDMS6kZp845ri0G5G6KCga50GiskE?usp=sharing) and follow the steps given by the installer.
+Download `POSApp_setup.exe` file from this [drive folder](https://drive.google.com/file/d/13LjpoL5892c4EIVMrnrFJc7Y_U_l1vbk/view?usp=drive_link) and follow the steps given by the installer.
+
+### **Important Note**
+
+When installing the program, you may see a warning from Windows indicating that the file is from an "unknown publisher" or that it might be flagged as a potentially unwanted application. This happens because the installer has not been digitally signed with a certificate that Windows recognizes, which is a common occurrence for software created by independent developers or small teams.
+
+However, **you can trust this application**:
+
+- It was developed with care to assist in managing your Point of Sale operations.
+- The file has been scanned for malware and is safe to install.
+- If you have any doubts, feel free to contact me for verification.
+
+#### **Steps to Bypass the Warning**
+
+1. When the warning appears, click on **"More info"**.
+2. Select **"Run anyway"** to proceed with the installation.
+
+By following these steps, you can safely install and use the POSApp.
 
 ## Usage
 
