@@ -8,6 +8,8 @@
 
 With its user-friendly design and robust functionality, **POSApp** helps businesses manage their operations effectively and gain valuable insights into their sales and inventory.
 
+![POSApp Gif](assets\captures\posapp.gif)
+
 ## Features
 
 - **POS System Tab**: Process sales transactions, view cart items, and calculate totals and change.

@@ -2,8 +2,9 @@ sinthetic_data.py
 /.venv
 **/__pycache__
 /output
-dist
-build
+/captures
+/dist
+/build
 *.db
 *.exe
 *.ifp
