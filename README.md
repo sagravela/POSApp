@@ -21,7 +21,7 @@ With its user-friendly design and robust functionality, **POSApp** helps busines
 
 ## Installation
 
-Download `POSApp_setup.exe` file from this [drive folder](https://drive.google.com/file/d/13LjpoL5892c4EIVMrnrFJc7Y_U_l1vbk/view?usp=drive_link) and follow the steps given by the installer.
+Download `pos_setup.exe` file from this [drive folder](https://drive.google.com/file/d/13LjpoL5892c4EIVMrnrFJc7Y_U_l1vbk/view?usp=drive_link) and follow the steps given by the installer.
 
 ### **Important Note**
 
