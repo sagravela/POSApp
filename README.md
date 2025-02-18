@@ -8,7 +8,7 @@
 
 With its user-friendly design and robust functionality, **POSApp** helps businesses manage their operations effectively and gain valuable insights into their sales and inventory.
 
-![POSApp Gif](captures\posapp.gif)
+![POSApp Gif](assets\posapp.gif)
 
 ## Features
 
